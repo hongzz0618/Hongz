@@ -65,7 +65,7 @@ insert into USERS VALUES("hongzxc","zhouzxc","cf17hong.zhon@iesjoandaustria.org"
 	            	System.out.println("El NICK ya existe");
 		        	 
 		         }else {
-		        	 System.out.println("El NICK no existe");
+		        	 System.out.println("El NICK no existes");
 		         }
 	         }
 		}catch(SQLException e) {
