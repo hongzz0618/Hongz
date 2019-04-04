@@ -43,8 +43,9 @@ insert into USERS VALUES("hongzxc","zhouzxc","cf17hong.zhon@iesjoandaustria.org"
 			}catch(SQLException e) {
 				e.printStackTrace();
 			}
-			return false;
+
 	}
+		return false;
 }
 	public static boolean select(String uName) {
 		Connection con;
@@ -78,8 +79,9 @@ insert into USERS VALUES("hongzxc","zhouzxc","cf17hong.zhon@iesjoandaustria.org"
 			}catch(SQLException e) {
 				e.printStackTrace();
 			}
-			return false;
+			
 	}
+		return false;
 }
 	
 	
