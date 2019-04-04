@@ -12,7 +12,7 @@ public class ConnectionDB {
 		try {
 			LoginCase.select(DRIVER);
 			Class.forName(DRIVER);
-			conn=DriverManager.getConnection(URL,"sa", "");
+			conn=DriverManager.getConnection(URL,"sa", "hong");
 		}catch(ClassNotFoundException | SQLException e) {
 			System.err.println("Error: "+e);
 		}
