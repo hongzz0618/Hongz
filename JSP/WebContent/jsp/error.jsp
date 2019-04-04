@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
+<title> </title>
 </head>
 <body>
 <h1>El USUARIO YA EXISTE , INTRODUCE UNO NUEVO OTRA VEZ</h1>
