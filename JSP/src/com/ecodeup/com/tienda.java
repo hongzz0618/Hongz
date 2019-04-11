@@ -39,7 +39,7 @@ public class tienda extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String c1 = request.getParameter("checkbox1");
+		
 		
 		String nick= request.getParameter("nick");
 		
