@@ -5,11 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.logging.Level; 
+import java.util.logging.Logger; 
 public class LoginCase {
 	
 	public static boolean insertUser(String uName, String uPass, String uEmail) {
 		Connection con;
-		
+		final Logger LOGGER = Logger.getLogger("com.ecodeup.com");
 		con=ConnectionDB.getConnection();
 		PreparedStatement ps =null;
 		
@@ -62,25 +64,39 @@ insert into USERS VALUES("hongzxc","zhouzxc","cf17hong.zhon@iesjoandaustria.org"
 	         while(result.next()){
 	            System.out.println(result.getString("NICK"));
 	            if(result.getString("NICK") == "ytr") {
-	            	System.out.println("El NICK ya existe");
+	            	//System.out.println("El NICK ya existe");
 		        	 
 		         }else {
-		        	 System.out.println("El NICK no existes");
+		        	 //LOGGER.log(Level.SEVERE,"El NICK no existes");
+		        	 String msn = "El nick no existe";
+		        	//System.out.println("El NICK nox existe");
+		        	
 		         }
 	         }
+	         
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
-			try{
-				if(ps != null) {
-					ps.close();
-				}
-			
-			}catch(SQLException e) {
-				e.printStackTrace();
-			}
-			
-	}
+		    if (result != null) {
+		        try {
+		            result.close();
+		        } catch (SQLException e) {  }
+		    }
+		    if (ps != null) {
+		        try {
+		            ps.close();
+		        } catch (SQLException e) {  }
+		    }
+		    if (con != null) {
+		        try {
+		            con.close();
+		        } catch (SQLException e) {  }
+		    }if (stmt != null) {
+		        try {
+		            stmt.close();
+		        } catch (SQLException e) {  }
+		    }
+		}
 		return false;
 }
 	
