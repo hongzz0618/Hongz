@@ -91,7 +91,8 @@ insert into USERS VALUES("hongzxc","zhouzxc","cf17hong.zhon@iesjoandaustria.org"
 		        try {
 		            con.close();
 		        } catch (SQLException e) {  }
-		    }if (stmt != null) {
+		    }
+		    if (stmt != null) {
 		        try {
 		            stmt.close();
 		        } catch (SQLException e) {  }
