@@ -3,11 +3,14 @@ package com.ecodeup.com;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+import java.util.logging.Level; 
+import java.util.logging.Logger; 
 public class ConnectionDB {
-	private ConnectionDB() { }
+//este punto java es donde se guarda las informaciones propies, para luego conectarse a la bbdd hsqldb
 	static String DRIVER="org.hsqldb.jdbcDriver";
 	static String URL="jdbc:hsqldb:C:\\Users\\cf17h\\eclipse-workspace\\JSP\\WebContent\\WEB-INF\\lib\\srv_db.tmp";
+	final static Logger LOGGER = Logger.getLogger("com.ecodeup.com");
+	private ConnectionDB() { }
 	public static Connection getConnection() {
 		Connection conn = null;
 		String ps="";
@@ -16,7 +19,8 @@ public class ConnectionDB {
 			Class.forName(DRIVER);
 			conn=DriverManager.getConnection(URL,"sa", ps);
 		}catch(ClassNotFoundException | SQLException e) {
-			//System.err.println("Error: "+e);
+			String msn = "la exception es ";
+       	 LOGGER.log(Level.INFO,msn, e);
 		}
 		return conn;
 		
@@ -24,3 +28,4 @@ public class ConnectionDB {
 	
 
 }
+
