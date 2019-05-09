@@ -6,26 +6,19 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.logging.Level; 
-import java.util.logging.Logger; 
+import java.util.logging.Logger;
+
 public class LoginCase {
-	
+	final static Logger LOGGER = Logger.getLogger("com.ecodeup.com");
+	private LoginCase() { }
 	public static boolean insertUser(String uName, String uPass, String uEmail) {
 		Connection con;
-		final Logger LOGGER = Logger.getLogger("com.ecodeup.com");
+		
 		con=ConnectionDB.getConnection();
 		PreparedStatement ps =null;
 		
 		try {
-			/*
-		CREATE TABLE USER (
-    NICK varchar(20) PRIMARY KEY,
-    EMAIL varchar(20),
-    PASSWORD varchar(20)
-);
-
-insert into USERS VALUES("hongzxc","zhouzxc","cf17hong.zhon@iesjoandaustria.org");
-
-*/
+		
 			String consulta = "insert into USER (NICK,EMAIL,PASSWORD) VALUES(?,?,?);";
 			ps=con.prepareStatement(consulta);
 			ps.setString(1, uName);
@@ -64,12 +57,13 @@ insert into USERS VALUES("hongzxc","zhouzxc","cf17hong.zhon@iesjoandaustria.org"
 	         while(result.next()){
 	            System.out.println(result.getString("NICK"));
 	            if(result.getString("NICK") == "ytr") {
-	            	//System.out.println("El NICK ya existe");
+	            	String msn = "El nick ya existe";
+		        	 LOGGER.log(Level.INFO,msn);
+	            
 		        	 
 		         }else {
-		        	 //LOGGER.log(Level.SEVERE,"El NICK no existes");
 		        	 String msn = "El nick no existe";
-		        	//System.out.println("El NICK nox existe");
+		        	 LOGGER.log(Level.INFO,msn);
 		        	
 		         }
 	         }
@@ -80,18 +74,27 @@ insert into USERS VALUES("hongzxc","zhouzxc","cf17hong.zhon@iesjoandaustria.org"
 		    if (result != null) {
 		        try {
 		            result.close();
-		        } catch (SQLException e) {  }
+		        } catch (SQLException e) {
+		        	e.printStackTrace();
+		        	
+		        }
 		    }
 		    if (ps != null) {
 		        try {
 		            ps.close();
-		        } catch (SQLException e) {  }
+		        } catch (SQLException e) { 
+		        	e.printStackTrace();
+		        	
+		        }
 		    }
 		    
 		    if (stmt != null) {
 		        try {
 		            stmt.close();
-		        } catch (SQLException e) {  }
+		        } catch (SQLException e) { 
+		        	e.printStackTrace();
+		        	
+		        }
 		    }
 		}
 		return false;
