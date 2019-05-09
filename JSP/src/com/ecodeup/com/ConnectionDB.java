@@ -15,7 +15,6 @@ public class ConnectionDB {
 		Connection conn = null;
 		String ps="";
 		try {
-			LoginCase.select(DRIVER);
 			Class.forName(DRIVER);
 			conn=DriverManager.getConnection(URL,"sa", ps);
 		}catch(ClassNotFoundException | SQLException e) {

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class inicio
  */
+//este punto java, hace que se relacione con 
 @WebServlet("/inici")
 public class inici extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,6 +27,7 @@ public class inici extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    //con el metodo get si todo va bien ira a la primera pagina index.jsp
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		getServletContext().getRequestDispatcher("/jsp/index.jsp").forward(request, response);

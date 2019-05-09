@@ -18,15 +18,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/nameeee")
 
 public class nameeee extends HttpServlet {
+	private nameeee() { }
 	private static final long serialVersionUID = 1L;
        
     /**
+     * 
      * @see HttpServlet#HttpServlet()
      */
-    public nameeee() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,8 +42,7 @@ public class nameeee extends HttpServlet {
 		String user = request.getParameter("user");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
-		Pattern pat =Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-   +"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+		Pattern pat =Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 		Matcher mat=pat.matcher(email);
 		Pattern pat1 =Pattern.compile("^[A-Za-z0-9]{1,10}$");
 		Matcher mat1=pat1.matcher(user);
@@ -55,10 +53,7 @@ public class nameeee extends HttpServlet {
 		if (mat1.find()) {
 			if (mat.find()) {
 				if (mat2.find()) {
-					/*
-					if(LoginCase.select(user)) {
-						response.sendRedirect("/JSP/jsp/error.jsp");
-					}else {*/
+				
 						LoginCase.insertUser(user,password,email);	
 						response.sendRedirect("/JSP/jsp/validar.jsp");
 					
@@ -75,3 +70,7 @@ public class nameeee extends HttpServlet {
 	}
 
 }
+
+
+
+

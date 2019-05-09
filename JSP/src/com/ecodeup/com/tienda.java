@@ -22,10 +22,7 @@ public class tienda extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public tienda() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private tienda() { }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
