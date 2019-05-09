@@ -55,7 +55,7 @@ public class LoginCase {
 	            "SELECT NICK FROM USER Where NICK = '"+uName+"'");
 	    
 	         while(result.next()){
-	            System.out.println(result.getString("NICK"));
+	        	 LOGGER.log(Level.INFO,result.getString("NICK"));
 	            if(result.getString("NICK") == "ytr") {
 	            	String msn = "El nick ya existe";
 		        	 LOGGER.log(Level.INFO,msn);
