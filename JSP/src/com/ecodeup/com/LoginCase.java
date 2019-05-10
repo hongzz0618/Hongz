@@ -18,7 +18,12 @@ public class LoginCase {
 		PreparedStatement ps =null;
 		
 		try {
-		
+			String bbdd = "CREATE TABLE USER (\r\n" + 
+					" ID varchar(6) PRIMARY KEY,\r\n" + 
+					" NICK varchar(20) NOT NULL, \r\n" + 
+					" EMAIL varchar(20) NOT NULL,\r\n" + 
+					" PASSWORD varchar(20) NOT NULL,\r\n" + 
+					");";
 			String consulta = "insert into USER (NICK,EMAIL,PASSWORD) VALUES(?,?,?);";
 			ps=con.prepareStatement(consulta);
 			ps.setString(1, uName);
