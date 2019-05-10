@@ -27,7 +27,7 @@ public class inici extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    //con el metodo get si todo va bien ira a la primera pagina index.jsp
+    //con el metodo get si todo va bien redirect a la primera pagina index.jsp
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		getServletContext().getRequestDispatcher("/jsp/index.jsp").forward(request, response);
