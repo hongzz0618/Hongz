@@ -48,23 +48,16 @@ public class nameeee extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//leemos ese fichero propertie para uzarlo despues
-		try {
-			is = new FileInputStream("C:\\Users\\cf17h\\git\\Hongz\\JSP\\WebContent\\jsp\\help.properties");
-			prop.load(is);
-		} catch(IOException e) {
-			String msn = "la exception es ";
-	       	 LOGGER.log(Level.INFO,msn, e);
-		}
 		//guardamos los parametros obtenidos a una variable
 		String user = request.getParameter("user");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		//hacemos el pattern para que compile bien lo que introduce el usuario, mediante el fichero properties obtenemos el pattern
-		Pattern pat =Pattern.compile(prop.getProperty("p1"));
+		Pattern pat =Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 		Matcher mat=pat.matcher(email);
-		Pattern pat1 =Pattern.compile(prop.getProperty("p2"));
+		Pattern pat1 =Pattern.compile("^[A-Za-z0-9]{1,10}$");
 		Matcher mat1=pat1.matcher(user);
-		Pattern pat2 =Pattern.compile(prop.getProperty("p3"));
+		Pattern pat2 =Pattern.compile("^[A-Za-z0-9]{8,}$");
 		Matcher mat2=pat2.matcher(password);
 
 	//conjunto redirecciones de ifs, dependiendo del que introdusca el usuario ira a una otra jsp 	
